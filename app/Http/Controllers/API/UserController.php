@@ -26,7 +26,7 @@ class UserController extends Controller
                 'success' => false
             ], response::HTTP_NOT_FOUND);
         }
-        $list_user = User::all();
+        $list_user = User::where('id', '!=', '1')->get();
         return response()->json([
             'success' => true,
             'list_user' => $list_user,
